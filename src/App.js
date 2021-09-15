@@ -5,16 +5,16 @@ import Counter from "./component/Counter";
 function App() {
   return (
     <div className="app">
-      <Counter
-        render={(count, incrementCount) => (
+      <Counter>
+        {(count, incrementCount) => (
           <ClickCounter count={count} incrementCount={incrementCount} />
         )}
-      />
-      <Counter
-        render={(count, incrementCount) => (
+      </Counter>
+      <Counter>
+        {(count, incrementCount) => (
           <HoverCounter count={count} incrementCount={incrementCount} />
         )}
-      />
+      </Counter>
     </div>
   );
 }
