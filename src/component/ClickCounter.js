@@ -15,19 +15,11 @@
 import React from "react";
 
 export default class ClickCounter extends React.Component {
-  state = {
-    count: 0,
-  };
-
-  incrementCount = () => {
-    this.setState((prevState) => ({ count: prevState.count + 1 }));
-  };
-
   render() {
-    const { count } = this.state;
+    const { count, incrementCount } = this.props;
     return (
       <div>
-        <button type="button" onClick={this.incrementCount}>
+        <button type="button" onClick={incrementCount}>
           Clicked {count} times
         </button>
       </div>
