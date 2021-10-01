@@ -9,6 +9,20 @@ class App extends React.Component {
   state = {
     theme: "dark",
   };
+
+  switchTheme = () => {
+    this.setState(({ theme }) => {
+      if (theme === "dark") {
+        return {
+          theme: "light",
+        };
+      } else {
+        return {
+          theme: "dark",
+        };
+      }
+    });
+  };
   render() {
     const { theme } = this.state;
     return (
@@ -18,7 +32,7 @@ class App extends React.Component {
             <ClickCounter count={count} incrementCount={incrementCount} />
           )}
         </Counter>
-        <ThemeContext.Provider value={{ theme: theme }}>
+        <ThemeContext.Provider value={{ theme, switchTheme: this.switchTheme }}>
           <Section />
         </ThemeContext.Provider>
       </div>
